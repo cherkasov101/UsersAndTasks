@@ -34,7 +34,6 @@ func GetHistory(w http.ResponseWriter, r *http.Request, DB *sql.DB) {
 	}
 	defer completedQuests.Close()
 
-	//var completedQuestsList []models.CompletedQuest
 	var questNames []string
 
 	for completedQuests.Next() {
@@ -53,7 +52,6 @@ func GetHistory(w http.ResponseWriter, r *http.Request, DB *sql.DB) {
 			return
 		}
 		questNames = append(questNames, questName)
-		//completedQuestsList = append(completedQuestsList, completedQuest)
 	}
 
 	response := struct {

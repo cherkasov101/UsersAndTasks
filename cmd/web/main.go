@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -16,8 +15,6 @@ import (
 var DB *sql.DB
 
 func main() {
-	fmt.Println("Hello, World!")
-
 	var err error
 	DB, err = db.ConnectDB()
 	if err != nil {

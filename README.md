@@ -37,7 +37,7 @@ make
 
 ## Сигнал сервису, что пользователь выполнил задачу:
 
-нужно направить POST запрос на адрес localhost:8080/complete-quest с телом:
+нужно направить POST запрос на адрес localhost:8080/quest-done с телом:
 ```json
 {
     "quest_id": 1,
@@ -58,3 +58,8 @@ localhost:8080/get-history?user_id=1
 ## Получение списка всех пользователей:
 
 нужно направить GET запрос на адрес localhost:8080/get-quests.
+
+## Примеры:
+
+<img src="img/1.png" width="60%">
+

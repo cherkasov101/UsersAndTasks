@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -42,7 +41,6 @@ func QuestDone(w http.ResponseWriter, r *http.Request, DB *sql.DB) {
 		return
 	}
 
-	fmt.Println(CompletedQuest.QuestId, CompletedQuest.UserId)
 	_, err = DB.Exec("INSERT INTO completed_quests(quest_id, user_id) VALUES(?, ?)", 
 		CompletedQuest.QuestId, CompletedQuest.UserId)
 	if err != nil {
@@ -89,10 +87,9 @@ func checkQuestNotDone(quest_id int, user_id int, DB *sql.DB) (bool, error) {
 		}
 		completedQuestsList = append(completedQuestsList, completedQuest)
 	}
-	fmt.Println("Quest already done", completedQuestsList, quest_id, user_id)
+
 	for _, completedQuest := range completedQuestsList {
 		if completedQuest.QuestId == quest_id && completedQuest.UserId == user_id {
-			fmt.Println("Quest already done", completedQuestsList, quest_id, user_id)
 			return false, nil
 		}
 	}
